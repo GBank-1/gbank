@@ -5,7 +5,8 @@ Projeto Final do Evento Gama Academy - IBM
 
 • Somos G de gente
 Uma empresa humanitária que enxerga o valor das pessoas como um todo. 
-Que entende que Gente é diversidade, gente é parceria, gente é inclusão, gente é tudo ao nosso redor.
+Que entende que Gente é diversidade, gente é parceria, gente é inclusão, 
+gente é tudo ao nosso redor.
 
 
 • Somos G de gigantes
