@@ -57,7 +57,7 @@ ATTENTION: After generating your public and private key, keep a copy in a safe p
     
   ``` git config user.email "email@email.com" ```
   
-  TIP: If you use more than one ssh key, you can specify the key you to use
+  TIP: If you use more than one ssh key, you can specify the key to use
   
   ```git config core.sshCommand 'ssh -i ~/.ssh/id_ed25519_2.pub'```
   
