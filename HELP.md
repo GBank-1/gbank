@@ -36,16 +36,20 @@ The following guides illustrate how to use some features concretely:
   
   ``` cd gbank ```
   
-  Execute maven
+  Execute maven:
+  
+  build:
   
   ``` .\mvnw clean install ```
+  
+  deploy in embedded tomcat :
   
   ``` .\mvnw spring-boot:run ```
   
   Note: You could need before run it, in linux System, get execution permission for mvnw file
   
-  
-
+  Access:
+    Doc: http://localhost:8080/swagger-ui/index.html
 
 
 
