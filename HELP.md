@@ -38,38 +38,42 @@ To connect to a Git server securely you need to generate an SSH Key (public and 
 
 ATTENTION: After generating your public and private key, keep a copy in a safe place for later use if you have any problems
 
+TIP: Add Github in Know Hosts
+
+    ssh-keyscan github.com >> ~/.ssh/known_hosts
+
   ##### Clone the git repository
   
-  ``` git clone git@github.com:GBank-1/gbank.git```
+    git clone git@github.com:GBank-1/gbank.git
   
   ##### Go into project folder
   
-  ``` cd gbank ```
+    cd gbank
   
   
   ##### Setting up Git
   
-  Set your username in Git whith the same on Github Account
+   Set your username in Git whith the same on Github Account
+   
+     git config user.name "Mona Lisa"
     
-  ``` git config user.name "Mona Lisa" ```
+   Set your email in Git whith the same on Github Account
     
-  Set your email in Git whith the same on Github Account
-    
-  ``` git config user.email "email@email.com" ```
+     git config user.email "email@email.com"
   
-  TIP: If you use more than one ssh key, you can specify the key to use
+   TIP: If you use more than one ssh key, you can specify the key to use
   
-  ```git config core.sshCommand 'ssh -i ~/.ssh/id_ed25519_2.pub'```
+     git config core.sshCommand 'ssh -i ~/.ssh/id_ed25519_2.pub'
   
   ##### Execute the goals' maven:
   
   - build:
   
-  ``` .\mvnw clean install ```
+           .\mvnw clean install 
   
-  - deploy in embedded tomcat :
+  - deploy in embedded tomcat:
   
-  ``` .\mvnw spring-boot:run ```
+          .\mvnw spring-boot:run
   
   Note: You could need before run it, in linux System, get execution permission for mvnw file
   
