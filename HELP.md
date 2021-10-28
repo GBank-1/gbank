@@ -30,15 +30,17 @@ The following guides illustrate how to use some features concretely:
 
   Clone the git repository
   
-  `git clone git@github.com:GBank-1/gbank.git
+  ``` git clone git@github.com:GBank-1/gbank.git```
   
   Entry in project folder
-  `cd gbank
+  
+  ``` cd gbank ```
   
   Execute maven
   
-  `.\mvnw clean install
-  `.\mvnw spring-boot:run
+  ``` .\mvnw clean install ```
+  
+  ``` .\mvnw spring-boot:run ```
   
   Note: You could need before run it, in linux System, get execution permission for mvnw file
   
