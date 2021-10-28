@@ -17,3 +17,34 @@ The following guides illustrate how to use some features concretely:
 * [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
 * [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
 
+
+### Install Developer Guide
+
+#### Prerequisite
+
+- git (you can download it in https://git-scm.com/downloads)
+- jdk 8 ( you can download it in https://docs.aws.amazon.com/corretto/latest/corretto-8-ug/downloads-list.html)
+- Defined JAVA_HOME enrivonment variable in you system
+
+#### Steps
+
+  Clone the git repository
+  
+  `git clone git@github.com:GBank-1/gbank.git
+  
+  Entry in project folder
+  `cd gbank
+  
+  Execute maven
+  
+  `.\mvnw clean install
+  `.\mvnw spring-boot:run
+  
+  Note: You could need before run it, in linux System, get execution permission for mvnw file
+  
+  
+
+
+
+
+
