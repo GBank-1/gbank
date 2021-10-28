@@ -32,7 +32,7 @@ The following guides illustrate how to use some features concretely:
   
   ``` git clone git@github.com:GBank-1/gbank.git```
   
-  Entry in project folder
+  Go into project folder
   
   ``` cd gbank ```
   
