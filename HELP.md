@@ -24,7 +24,7 @@ The following guides illustrate how to use some features concretely:
 
 - git (you can download it in https://git-scm.com/downloads)
 - jdk 8 ( you can download it in https://docs.aws.amazon.com/corretto/latest/corretto-8-ug/downloads-list.html)
-- Defined JAVA_HOME enrivonment variable in you system
+- Defined JAVA_HOME enrivonment variable in your system
 
 #### Steps
 
