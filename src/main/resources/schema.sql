@@ -1,0 +1,1 @@
+create table Cliente(id int PRIMARY KEY, nome VARCHAR (255), sobrenome VARCHAR (255), password VARCHAR (255));

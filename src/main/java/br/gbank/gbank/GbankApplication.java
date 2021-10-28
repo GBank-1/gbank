@@ -1,4 +1,4 @@
-package br.gbank.gbank;
+package br.com.gbank;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class GbankApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(GbankApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(GbankApplication.class, args);
+    }
 
 }
