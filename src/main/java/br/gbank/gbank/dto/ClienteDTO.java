@@ -1,4 +1,4 @@
-package br.com.gbank.dto;
+package br.gbank.gbank.dto;
 
 import lombok.Getter;
 import lombok.Setter;

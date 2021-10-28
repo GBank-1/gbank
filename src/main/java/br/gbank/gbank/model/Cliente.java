@@ -1,4 +1,4 @@
-package br.com.gbank.model;
+package br.gbank.gbank.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;

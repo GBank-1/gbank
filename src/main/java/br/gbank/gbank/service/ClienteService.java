@@ -1,8 +1,8 @@
-package br.com.gbank.service;
+package br.gbank.gbank.service;
 
-import br.com.gbank.dto.ClienteDTO;
-import br.com.gbank.model.Cliente;
-import br.com.gbank.repository.ClienteRepository;
+import br.gbank.gbank.dto.ClienteDTO;
+import br.gbank.gbank.model.Cliente;
+import br.gbank.gbank.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

@@ -1,4 +1,4 @@
-package br.com.gbank.config;
+package br.gbank.gbank.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
