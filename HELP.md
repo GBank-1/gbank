@@ -27,9 +27,16 @@ The following guides illustrate how to use some features concretely:
 - git (you can download it in https://git-scm.com/downloads)
 - jdk 8 ( you can download it in https://docs.aws.amazon.com/corretto/latest/corretto-8-ug/downloads-list.html)
 - Defined JAVA_HOME enrivonment variable in your system
+- ssh 
 
 
 #### Steps
+
+##### Generate your SSH Key
+
+To connect to a Git server securely you need to generate an SSH Key (public and private key). This key must be registered on Github in order to have access to the project repositories. Follow the steps in : [Conectar-se ao GitHub com SSH](https://docs.github.com/pt/authentication/connecting-to-github-with-ssh)
+
+ATTENTION: After generating your public and private key, keep a copy in a safe place for later use if you have any problems
 
   ##### Clone the git repository
   
