@@ -13,9 +13,11 @@ For further reference, please consider the following sections:
 The following guides illustrate how to use some features concretely:
 
 * [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
 * [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
 * [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
+* [Connecting to GitHub with SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
+* [Git - guia prático](http://rogerdudler.github.io/git-guide/index.pt_BR.html)
+* [Documentando uma API Spring Boot com o Swagger](https://www.treinaweb.com.br/blog/documentando-uma-api-spring-boot-com-o-swagger)
 
 
 ### Install Developer Guide
@@ -26,23 +28,35 @@ The following guides illustrate how to use some features concretely:
 - jdk 8 ( you can download it in https://docs.aws.amazon.com/corretto/latest/corretto-8-ug/downloads-list.html)
 - Defined JAVA_HOME enrivonment variable in your system
 
+
 #### Steps
 
-  Clone the git repository
+  ##### Clone the git repository
   
   ``` git clone git@github.com:GBank-1/gbank.git```
   
-  Go into project folder
+  ##### Go into project folder
   
   ``` cd gbank ```
   
-  Execute maven:
   
-  build:
+  ##### Setting up Git
+  
+  Set your username in Git whith the same on Github Account
+    
+  ``` git config user.name "Mona Lisa" ```
+    
+  Set your email in Git whith the same on Github Account
+    
+  ``` git config user.email "email@email.com" ```
+  
+  ##### Execute the goals' maven:
+  
+  - build:
   
   ``` .\mvnw clean install ```
   
-  deploy in embedded tomcat :
+  - deploy in embedded tomcat :
   
   ``` .\mvnw spring-boot:run ```
   
@@ -50,8 +64,9 @@ The following guides illustrate how to use some features concretely:
   
   
   
-  Api Doc:
-    [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
+  ##### Api Doc:
+  
+  [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
 
 
 
