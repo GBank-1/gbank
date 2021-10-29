@@ -15,7 +15,7 @@
     <name>gbank</name>
     <description>Projeto Final do curso da Gama Academy to Spring boot</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>1.8</java.version>
         <springfox-swagger2.version>3.0.0</springfox-swagger2.version>
     </properties>
     <dependencies>
