@@ -3,6 +3,7 @@ Projeto Final do Evento Gama Academy - IBM
 
 [![Java CI with Maven](https://github.com/GBank-1/gbank/actions/workflows/maven.yml/badge.svg)](https://github.com/GBank-1/gbank/actions/workflows/maven.yml)
 
+
 > Porque somos Gbank? 
 
 • Somos G de gente, uma empresa humanitária que enxerga o valor das pessoas como um todo. Que entende que Gente é diversidade, gente é parceria, gente é inclusão, 
@@ -19,3 +20,7 @@ gente é tudo ao nosso redor.
 
 
 Vem ser Gbank!
+
+> Sobre o Projeto Gbank
+
+Para instruções tecnicas consulte [HELP.md](HELP.md)

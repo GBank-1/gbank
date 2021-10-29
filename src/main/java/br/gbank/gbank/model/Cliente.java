@@ -2,7 +2,6 @@ package br.gbank.gbank.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
-import org.hibernate.Hibernate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,7 +27,7 @@ public class Cliente {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        if (o == null || this.getClass() != o.getClass()) return false;
         Cliente cliente = (Cliente) o;
         return id != null && Objects.equals(id, cliente.id);
     }

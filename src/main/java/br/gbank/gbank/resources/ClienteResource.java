@@ -13,7 +13,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 
 @RestController
-@RequestMapping(value = "/cliente")
+@RequestMapping(value = "/clientes")
 public class ClienteResource {
 
     @Autowired
