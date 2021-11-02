@@ -29,3 +29,9 @@ As principais funcionalidades que estarão disponíveis são o cadastro de clien
 Como forma de agradecer por experimentar nossa plataforma, estamos oferecendo um bônus direto na sua conta. Venha experimentar!
 
 Para começar a usar nossa plataforma, consulte [aqui](https://gbank-1.github.io/gbank/) ou nosso [help](HELP.md)
+
+##### Equipe GBank
+[Helis Freitas](https://github.com/flordelis)
+[Sarah Calbez](https://github.com/Sarahcalbez2)
+[Charles Chaclim](https://github.com/CharlesChaclim)
+[Pedro Neri](https://github.com/PPNeri)
