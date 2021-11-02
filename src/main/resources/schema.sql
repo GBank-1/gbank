@@ -6,4 +6,7 @@
         password varchar(255),
         primary key (id)
 );
-
+-- Agencia
+ create table Agencia (
+         codigo char(4)
+ );
