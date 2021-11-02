@@ -13,22 +13,22 @@ import java.util.function.Function;
 @Service
 public class ClienteService {
 
-    @Autowired
-    private ClienteRepository clienteRepository;
+	@Autowired
+	private ClienteRepository clienteRepository;
 
-    public Page<Cliente> getAll(Pageable pageable) {
-        return clienteRepository.findAll(pageable);
-    }
+	public Page<Cliente> getAll(Pageable pageable) {
+		return clienteRepository.findAll(pageable);
+	}
 
-    public Cliente create(ClienteDTO clienteDTO){
-        Cliente cliente = toCliente.apply(clienteDTO);
-        return clienteRepository.save(cliente);
-    }
+	public Cliente create(ClienteDTO clienteDTO) {
+		Cliente cliente = toCliente.apply(clienteDTO);
+		return clienteRepository.save(cliente);
+	}
 
-    private Function<ClienteDTO, Cliente> toCliente = dto -> {
-        Cliente cliente = new Cliente();
-        cliente.setNome(dto.getNome());
-        cliente.setPassword(dto.getPassword());
-        return cliente;
-    };
+	private Function<ClienteDTO, Cliente> toCliente = dto -> {
+		Cliente cliente = new Cliente();
+		cliente.getDadosPessoais().setNome(dto.getNome());
+		cliente.getDadosPessoais().setEmail(dto.getEmail());
+		return cliente;
+	};
 }

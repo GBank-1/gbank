@@ -1,8 +1,10 @@
 package br.gbank.gbank.model;
 
 import java.util.Objects;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.ToString;
@@ -10,6 +12,7 @@ import lombok.ToString;
 @Entity
 @Getter
 @ToString
+@Table(schema = "IBM")
 public class Agencia {
 
     @Id
