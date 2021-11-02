@@ -23,8 +23,8 @@ Vem ser Gbank!
 
 #### Sobre o Projeto Gbank
 
-O banco fictício Gbank é uma nova plataforma para gerenciar as transações que será disponibilizado através de uma API Rest.
-As principais funcionalidades que estarão disponíveis são cadastro do cliente atrelado a uma conta e a transferencia de valores entre contas, alem do historico de todas as transações feitas.
+O banco fictício Gbank é uma nova plataforma para gerenciar transações que será disponibilizada através de uma API Rest.
+As principais funcionalidades que estarão disponíveis são o cadastro de cliente atrelado a uma conta e a transferência de valores entre contas, além do histórico de todas as transações realizadas.
 
 Como forma de agradecer por experimentar nossas plataforma, estamos oferecendo um bonus direto na sua conta. Venha experimentar.
 
