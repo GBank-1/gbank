@@ -26,14 +26,19 @@ public class Cliente {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || this.getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || this.getClass() != o.getClass())
+            return false;
         Cliente cliente = (Cliente) o;
         return id != null && Objects.equals(id, cliente.id);
     }
 
     @Override
     public int hashCode() {
-        return getClass().hashCode();
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        return result;
     }
 }
