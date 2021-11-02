@@ -23,4 +23,6 @@ Vem ser Gbank!
 
 > Sobre o Projeto Gbank
 
+https://gbank-1.github.io/gbank/
+
 Para instruções tecnicas consulte [HELP.md](HELP.md)
