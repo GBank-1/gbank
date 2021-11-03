@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import org.javamoney.moneta.FastMoney;
 
@@ -17,11 +18,12 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@Entity
 @Getter
 @Setter
 @ToString
 @EqualsAndHashCode
+@Entity
+@Table(schema = "IBM")
 public class Conta {
 
     @Id
