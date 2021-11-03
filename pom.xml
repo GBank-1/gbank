@@ -10,7 +10,7 @@
     <groupId>br.gbank</groupId>
     <artifactId>gbank</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>gbank</name>
     <description>Projeto Final do curso da Gama Academy to Spring boot</description>
     <properties>
@@ -24,6 +24,13 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.javamoney</groupId>
+            <artifactId>moneta</artifactId>
+            <version>1.4.1</version>
+            <type>pom</type>
         </dependency>
 
         <!-- Swagger Documentation -->
