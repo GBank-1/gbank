@@ -18,6 +18,9 @@ The following guides illustrate how to use some features concretely:
 * [Connecting to GitHub with SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
 * [Git - guia prático](http://rogerdudler.github.io/git-guide/index.pt_BR.html)
 * [Documentando uma API Spring Boot com o Swagger](https://www.treinaweb.com.br/blog/documentando-uma-api-spring-boot-com-o-swagger)
+* [Mapear entidades com JPA](https://www.youtube.com/watch?v=ODXvvEzXlQY)
+* [Trabalhar com Data/Hora em Rest API](https://www.devmedia.com.br/money-api-manipulando-dinheiro-no-java/31207)
+* [Manipular Dinheiro em Java](https://www.devmedia.com.br/money-api-manipulando-dinheiro-no-java/31207)
 
 
 ### Install Developer Guide
@@ -25,8 +28,9 @@ The following guides illustrate how to use some features concretely:
 #### Prerequisite
 
 - git (you can download it in https://git-scm.com/downloads)
-- jdk 8 ( you can download it in https://docs.aws.amazon.com/corretto/latest/corretto-8-ug/downloads-list.html)
+- jdk 11 ( you can download it in https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/downloads-list.html)
 - Defined JAVA_HOME enrivonment variable in your system
+- maven
 - ssh 
 
 
@@ -79,7 +83,7 @@ TIP: Add Github in Know Hosts
   
   
   
-  ##### Api Doc:
+  ###### Api Doc:
   
   [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
 
