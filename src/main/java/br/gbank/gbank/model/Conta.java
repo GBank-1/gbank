@@ -14,12 +14,8 @@ import org.javamoney.moneta.FastMoney;
 import br.gbank.gbank.model.convert.MonetaryAmountConverter;
 import br.gbank.gbank.util.MonetaryUtil;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
 import lombok.ToString;
 
-@Getter
-@Setter
 @ToString
 @EqualsAndHashCode
 @Entity
@@ -42,6 +38,8 @@ public class Conta {
 
     private boolean ativa;
 
+    public Conta(){}
+
     /**
      * @param numero
      */
@@ -49,6 +47,45 @@ public class Conta {
         this.numero = numero;
         this.ativa = true;
         this.saldo = FastMoney.of(100000, MonetaryUtil.BRL); 
-    }   
+    }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getNumero() {
+        return numero;
+    }
+
+    public void setNumero(Long numero) {
+        this.numero = numero;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public MonetaryAmount getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(MonetaryAmount saldo) {
+        this.saldo = saldo;
+    }
+
+    public boolean isAtiva() {
+        return ativa;
+    }
+
+    public void setAtiva(boolean ativa) {
+        this.ativa = ativa;
+    }
 }
