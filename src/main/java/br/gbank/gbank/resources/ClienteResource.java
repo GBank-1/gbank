@@ -1,6 +1,7 @@
 package br.gbank.gbank.resources;
 
 import br.gbank.gbank.dto.ClienteDTO;
+import br.gbank.gbank.exception.HandleException;
 import br.gbank.gbank.model.Cliente;
 import br.gbank.gbank.model.Conta;
 import br.gbank.gbank.service.ClienteService;
@@ -34,12 +35,18 @@ public class ClienteResource {
 
     @ApiOperation("Cadastra um Cliente")
     @PostMapping
-    public ResponseEntity<Cliente> create(@RequestBody ClienteDTO clienteDTO) {
-        Cliente cliente = clienteService.create(clienteDTO);
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{codigo}").buildAndExpand(cliente.getId()).toUri();
-        if (true) {
-            contaService.create(cliente);
+    public ResponseEntity create(@RequestBody ClienteDTO clienteDTO) {
+        try {
+            Cliente cliente = clienteService.create(clienteDTO);
+            URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{codigo}").buildAndExpand(cliente.getId()).toUri();
+            if (true) {
+                contaService.create(cliente);
+            }
+            return ResponseEntity.created(uri).body(cliente);
+        } catch(HandleException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        } catch(Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
-        return ResponseEntity.created(uri).body(cliente);
     }
 }

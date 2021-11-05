@@ -16,9 +16,9 @@ public class DadosPessoais {
 	@Column(name = "nome")
 	@NotBlank
 	private String nome;
-	@Column(name = "cpf")
+	@Column(name = "cpf", unique = true, nullable = false)
 	@NotBlank
-	@CPF
+	@CPF(message = "CPF Inválido")
 	private String cpf;
 	@Email
 	@NotBlank
