@@ -25,7 +25,7 @@ import lombok.Builder;
 public class LoadDataBaseTest implements CommandLineRunner {
 
 	@Autowired
-	private ClienteRepository clienteRepósitory;
+	private ClienteRepository clienteRepository;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -44,7 +44,7 @@ public class LoadDataBaseTest implements CommandLineRunner {
 		mario.setDadosPessoais(dadosPessoaisDoMario);
 		ada.setDadosPessoais(dadosPessoaisDaAda);
 
-		clienteRepósitory.saveAll(Arrays.asList(vader, mario, ada));
+		clienteRepository.saveAll(Arrays.asList(vader, mario, ada));
 
 	}
 

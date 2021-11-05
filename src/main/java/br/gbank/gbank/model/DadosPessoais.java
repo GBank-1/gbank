@@ -8,6 +8,8 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.br.CPF;
+
 @Embeddable
 public class DadosPessoais {
 
@@ -16,6 +18,7 @@ public class DadosPessoais {
 	private String nome;
 	@Column(name = "cpf")
 	@NotBlank
+	@CPF
 	private String cpf;
 	@Email
 	@NotBlank
