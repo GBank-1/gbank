@@ -29,8 +29,9 @@ public class ClienteResource {
 
     @ApiOperation("Lista todos os clientes")
     @GetMapping
-    public Page<Cliente> getAll(Pageable pageable) {
-        return clienteService.getAll(pageable);
+    public ResponseEntity<Page<ClienteDTO>> getAll(Pageable pageable) {
+        Page<ClienteDTO> list = clienteService.getAll(pageable);
+        return list.isEmpty()?ResponseEntity.noContent().build():ResponseEntity.ok().body(list);
     }
 
     @ApiOperation("Cadastra um Cliente")

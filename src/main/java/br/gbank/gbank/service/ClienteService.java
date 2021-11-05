@@ -17,8 +17,8 @@ public class ClienteService {
 	@Autowired
 	private ClienteRepository clienteRepository;
 
-	public Page<Cliente> getAll(Pageable pageable) {
-		return clienteRepository.findAll(pageable);
+	public Page<ClienteDTO> getAll(Pageable pageable) {
+		return clienteRepository.findAll(pageable).map(ClienteDTO::toClienteDTO);
 	}
 
 	public Cliente create(ClienteDTO clienteDTO) throws HandleException {
