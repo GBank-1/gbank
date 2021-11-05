@@ -49,9 +49,8 @@ public class Conta {
     /**
      * @param numero
      */
-   
     public Conta(Long numero) {
-        this()
+        this();
         this.numero=numero;
     }
 
