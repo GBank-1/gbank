@@ -27,6 +27,7 @@ public class Cliente {
 	public Cliente() {
 		super();
 		dataCadastro = LocalDate.now();
+		dadosPessoais = new DadosPessoais();
 	}
 
 	public Cliente(DadosPessoais dadosPessoais) {

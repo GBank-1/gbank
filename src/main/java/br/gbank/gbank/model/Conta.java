@@ -22,11 +22,13 @@ import lombok.ToString;
 @Table(schema = "IBM")
 public class Conta {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     private Long id;
 
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @EqualsAndHashCode.Include
     private Long numero;
 
@@ -38,15 +40,19 @@ public class Conta {
 
     private boolean ativa;
 
-    public Conta(){}
+    public Conta() {
+        super();
+        this.ativa = true;
+        this.saldo = FastMoney.of(100000, MonetaryUtil.BRL); 
+    }
 
     /**
      * @param numero
      */
+   
     public Conta(Long numero) {
-        this.numero = numero;
-        this.ativa = true;
-        this.saldo = FastMoney.of(100000, MonetaryUtil.BRL); 
+        this()
+        this.numero=numero;
     }
 
     public Long getId() {
@@ -88,4 +94,5 @@ public class Conta {
     public void setAtiva(boolean ativa) {
         this.ativa = ativa;
     }
+
 }

@@ -6,6 +6,7 @@ public class ClienteDTO {
 	private String nome;
 	private String email;
 
+
 	public String getNome() {
 		return nome;
 	}
@@ -28,4 +29,8 @@ public class ClienteDTO {
 		clienteDTO.setEmail(cliente.getDadosPessoais().getEmail());
 		return clienteDTO;
 	}
+
+	
+	
+
 }
