@@ -24,11 +24,12 @@ public class ClienteDTO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 	
-	public void getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 	public void setTelefone(String telefone) {
