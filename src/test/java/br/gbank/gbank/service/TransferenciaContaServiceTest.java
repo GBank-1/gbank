@@ -48,18 +48,17 @@ public class TransferenciaContaServiceTest {
 
     @BeforeEach
     public void before() {
-        contaOrigem = new Conta(231l);
+        contaOrigem = new Conta(clienteOrigem, 231l);
         contaOrigem.setCliente(clienteOrigem);
-        contaDestino = new Conta(232l);
-        contaDestino.setCliente(new Cliente());
+        contaDestino = new Conta(new Cliente(), 232l);
 
         dto = new TransferenciaDTO();
-        dto.setNumeroContaOrigem(231l);
-        dto.setNumeroContaDestino(232l);
+        dto.setContaDebitoId(1);
+        dto.setContaCreditoId(2);
         dto.setValor(BigDecimal.valueOf(10000l));
 
-        doReturn(contaOrigem).when(contaRepository).getByNumero(231l);
-        doReturn(contaDestino).when(contaRepository).getByNumero(232l);
+        doReturn(contaOrigem).when(contaRepository).getById(1l);
+        doReturn(contaDestino).when(contaRepository).getById(2l);
 
     }
 

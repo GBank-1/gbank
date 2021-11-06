@@ -27,7 +27,7 @@ public class ContaResource {
     @GetMapping
     @ApiOperation("Lista todas as contas")
     public ResponseEntity<Page<ContaDTO>> getAll(Pageable pageable) {
-        Page<ContaDTO> list = contaService.getAll(pageable);
+        Page<ContaDTO> list = contaService.getAll(pageable).map(ContaDTO::fromConta);
         return list.isEmpty()?ResponseEntity.noContent().build():ResponseEntity.ok().body(list);
     }
 

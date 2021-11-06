@@ -1,5 +1,5 @@
 package br.gbank.gbank.exception;
 
-public class ContaSemSaldoException extends Exception {
+public class ContaSemSaldoException extends RuntimeException {
 
 }

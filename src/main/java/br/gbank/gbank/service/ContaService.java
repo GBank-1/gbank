@@ -5,7 +5,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import br.gbank.gbank.dto.ContaDTO;
 import br.gbank.gbank.model.entity.Cliente;
 import br.gbank.gbank.model.entity.Conta;
 import br.gbank.gbank.repository.ContaRepository;
@@ -16,15 +15,14 @@ public class ContaService {
     @Autowired
     private ContaRepository contaRepository;
 
-    public Page<ContaDTO> getAll(Pageable pageable) {
-        return contaRepository.findAll(pageable).map(ContaDTO::fromConta);
+    public Page<Conta> getAll(Pageable pageable) {
+        return contaRepository.findAll(pageable);
     }
 
     public Conta create(Cliente cliente) {
-        Conta conta = new Conta();
-        conta.setAtiva(true);
-        conta.setCliente(cliente);
-        return contaRepository.save(conta);
+        Conta entity = new Conta(cliente);
+        cliente.setConta(entity);
+        return contaRepository.save(entity);
     }
 
     public Conta getById(Long id) {
@@ -32,7 +30,7 @@ public class ContaService {
     }
 
     public Conta getByNumero(Long numero) {
-        return null;
+        return contaRepository.getByNumero(numero);
     }
     
 }

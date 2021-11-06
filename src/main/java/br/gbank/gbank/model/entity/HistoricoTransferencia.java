@@ -9,21 +9,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import br.gbank.gbank.model.Transferencia;
 import br.gbank.gbank.model.convert.MonetaryAmountConverter;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 import lombok.ToString;
 
 @Entity
 @Getter
-@Setter
 @ToString
 @EqualsAndHashCode
 @RequiredArgsConstructor
+@Table(schema = "IBM")
 public class HistoricoTransferencia {
 
     @Id
@@ -42,13 +42,12 @@ public class HistoricoTransferencia {
     @Convert(converter = MonetaryAmountConverter.class)
     private MonetaryAmount valor;
 
-    @EqualsAndHashCode.Include
-    private LocalDateTime data;
-
     private boolean realizada;
 
+    @EqualsAndHashCode.Include
     private LocalDateTime dataHoraSolicitada;
 
+    @EqualsAndHashCode.Include
     private LocalDateTime dataHoraEfetuada;
 
     public HistoricoTransferencia(Transferencia transferencia) {

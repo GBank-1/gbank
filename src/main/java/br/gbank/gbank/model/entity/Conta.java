@@ -46,8 +46,13 @@ public class Conta {
 
     private boolean ativa;
 
-    public Conta() {
+    public Conta () {
+        //empty
+    }
+
+    public Conta(Cliente cliente) {
         super();
+        this.cliente = cliente;
         this.ativa = true;
         this.saldo = FastMoney.of(100000, MonetaryUtil.BRL); 
     }
@@ -55,8 +60,8 @@ public class Conta {
     /**
      * @param numero
      */
-    public Conta(Long numero) {
-        this();
+    public Conta(Cliente cliente, Long numero) {
+        this(cliente);
         this.numero=numero;
     }
 

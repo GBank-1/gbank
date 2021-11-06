@@ -28,8 +28,8 @@ public class TransferenciaResource {
     public ResponseEntity tranferir(@RequestBody TransferenciaDTO transferenciaDTO) {
         try {
             transferenciaService.transferir(transferenciaDTO);
-            URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("contas/{codigo}/extratos")
-                    .buildAndExpand(transferenciaDTO.getNumeroContaOrigem()).toUri();
+            URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/contas/{codigo}/extratos")
+                    .buildAndExpand(transferenciaDTO.getContaDebitoId()).toUri();
             return ResponseEntity.created(uri).build();
         } catch (ContaSemSaldoException e) {
             return ResponseEntity.badRequest().build();

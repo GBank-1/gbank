@@ -1,12 +1,15 @@
 package br.gbank.gbank.service;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.gbank.gbank.dto.TransferenciaDTO;
 import br.gbank.gbank.exception.ContaSemSaldoException;
+import br.gbank.gbank.exception.ContaTranferenciaIguaisException;
+import br.gbank.gbank.exception.ContaTransferenciaNaoEncontradaException;
 import br.gbank.gbank.model.TaxaEspecialTransferencia;
 import br.gbank.gbank.model.TaxaNormalTransferencia;
 import br.gbank.gbank.model.TaxaTransferencia;
@@ -18,34 +21,39 @@ import br.gbank.gbank.repository.ContaRepository;
 public class TransferenciaService {
 
     @Autowired
-	private ContaRepository contaRepository;
+    private ContaRepository contaRepository;
 
     @Autowired
     private HistoricoService historicoService;
 
+    public void transferir(TransferenciaDTO transferenciaDTO) throws ContaSemSaldoException {
+        if (transferenciaDTO.getContaCreditoId() == transferenciaDTO.getContaDebitoId()) {
+            throw new ContaTranferenciaIguaisException();
 
-	public void transferir(TransferenciaDTO transferenciaDTO) throws ContaSemSaldoException {
-		Conta origem = contaRepository.getByNumero(transferenciaDTO.getNumeroContaOrigem());
-        Conta destino = contaRepository.getByNumero(transferenciaDTO.getNumeroContaDestino());
-
-        LocalDate dtCadastro = origem.getDataCadastrada();
-        TaxaTransferencia taxa = new TaxaNormalTransferencia();
-        if(verificarSeClienteEstaNaFaixa6mesesTaxaEspecial(dtCadastro)) {
-            taxa = new TaxaEspecialTransferencia();
         }
-        Transferencia transferencia = new Transferencia.Builder()
-        .from(origem).to(destino)
-        .tax(taxa).valor(transferenciaDTO.getValor()).build();
+        Conta origem = Optional.ofNullable(contaRepository.getById(transferenciaDTO.getContaDebitoId())).orElseThrow(ContaTransferenciaNaoEncontradaException::new);
+        Conta destino = Optional.ofNullable(contaRepository.getById(transferenciaDTO.getContaCreditoId())).orElseThrow(ContaTransferenciaNaoEncontradaException::new);
+       
+        Transferencia transferencia = new Transferencia.Builder().from(origem).to(destino).tax(escolherTaxaTransferrencia(origem))
+                .valor(transferenciaDTO.getValor()).build();
         transferencia.processar();
         contaRepository.save(origem);
         contaRepository.save(destino);
         historicoService.registrar(transferencia);
 
-	}
+    }
 
+    private TaxaTransferencia escolherTaxaTransferrencia(Conta origem) {
+        TaxaTransferencia taxa = new TaxaNormalTransferencia();
+        if (verificarSeClienteEstaNaFaixa6mesesTaxaEspecial(origem.getDataCadastrada())) {
+            taxa = new TaxaEspecialTransferencia();
+        }
+        return taxa;
+    }
 
     private boolean verificarSeClienteEstaNaFaixa6mesesTaxaEspecial(LocalDate dtCadastro) {
-        return LocalDate.now().equals(dtCadastro)|| (LocalDate.now().isAfter(dtCadastro) && LocalDate.now().isBefore(dtCadastro.plusMonths(6)));
+        return LocalDate.now().equals(dtCadastro)
+                || (LocalDate.now().isAfter(dtCadastro) && LocalDate.now().isBefore(dtCadastro.plusMonths(6)));
     }
-    
+
 }

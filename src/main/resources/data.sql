@@ -10,7 +10,7 @@ insert into ibm.conta (ativa, numero, saldo, cliente_id) VALUES (true, 7890001, 
 insert into ibm.conta (ativa, numero, saldo, cliente_id) VALUES (true, 7890002, 100100, 2);
 
 --Historico
-insert into ibm.historico_transferencia (dataHoraEfetuada, dataHoraSolicitada, realizada, valor, origem_id, destino_id) VALUES (CURRENT_TIMESTAMP()
+insert into ibm.historico_transferencia (data_hora_efetuada, data_hora_solicitada, realizada, valor, origem_id, destino_id) VALUES (CURRENT_TIMESTAMP()
 , CURRENT_TIMESTAMP(), true, 100, 1, 2);
-insert into ibm.historico_transferencia (dataHoraEfetuada, dataHoraSolicitada, realizada, valor, origem_id, destino_id) VALUES (CURRENT_TIMESTAMP()
+insert into ibm.historico_transferencia (data_hora_efetuada, data_hora_solicitada, realizada, valor, origem_id, destino_id) VALUES (CURRENT_TIMESTAMP()
 , CURRENT_TIMESTAMP(), true, 100, 1, 2);
