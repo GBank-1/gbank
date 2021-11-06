@@ -30,7 +30,7 @@ public class ValorMonetarioVO implements Serializable {
     }
 
     public MonetaryAmount toMonetaryAmount() {
-        if (MonetaryUtil.BRL.getCurrencyCode().equals(this.moeda)) {
+        if (!MonetaryUtil.BRL.getCurrencyCode().equals(this.moeda)) {
             throw new MoedaNaoSuportadaException();
         }
         return MonetaryUtil.convertToMoney(this.valor);
