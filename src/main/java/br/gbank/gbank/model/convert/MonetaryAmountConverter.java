@@ -4,9 +4,11 @@ import java.math.BigDecimal;
 
 import javax.money.MonetaryAmount;
 import javax.persistence.AttributeConverter;
+import javax.persistence.Converter;
 
 import br.gbank.gbank.util.MonetaryUtil;
 
+@Converter
 public class MonetaryAmountConverter implements AttributeConverter<MonetaryAmount, BigDecimal> {
 	
     @Override
