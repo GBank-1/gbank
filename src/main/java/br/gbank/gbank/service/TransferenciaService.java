@@ -30,10 +30,9 @@ public class TransferenciaService {
 
         LocalDate dtCadastro = origem.getDataCadastrada();
         TaxaTransferencia taxa = new TaxaNormalTransferencia();
-        if(LocalDate.now().isAfter(dtCadastro) && LocalDate.now().isBefore(dtCadastro.plusMonths(6))) {
+        if(verificarSeClienteEstaNaFaixa6mesesTaxaEspecial(dtCadastro)) {
             taxa = new TaxaEspecialTransferencia();
         }
-
         Transferencia transferencia = new Transferencia.Builder()
         .from(origem).to(destino)
         .tax(taxa).valor(transferenciaDTO.getValor()).build();
@@ -43,5 +42,10 @@ public class TransferenciaService {
         historicoService.registrar(transferencia);
 
 	}
+
+
+    private boolean verificarSeClienteEstaNaFaixa6mesesTaxaEspecial(LocalDate dtCadastro) {
+        return LocalDate.now().equals(dtCadastro)|| (LocalDate.now().isAfter(dtCadastro) && LocalDate.now().isBefore(dtCadastro.plusMonths(6)));
+    }
     
 }
