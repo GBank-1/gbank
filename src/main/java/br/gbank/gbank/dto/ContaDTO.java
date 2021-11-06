@@ -1,17 +1,14 @@
 package br.gbank.gbank.dto;
 
-import javax.money.MonetaryAmount;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
+import java.io.Serializable;
 
 import br.gbank.gbank.model.entity.Conta;
 
-
-public class ContaDTO {
+public class ContaDTO implements Serializable {
     private Long id;
     private Long numero;
-    private MonetaryAmount saldo;
-    private ClienteDTO clienteDTO;
+    private ValorMonetarioVO saldo;
+    private Long clienteId;
     private boolean ativa;
 
     public Long getId() {
@@ -29,21 +26,21 @@ public class ContaDTO {
     public void setNumero(Long numero) {
         this.numero = numero;
     }
-    
-    public MonetaryAmount getSaldo() {
+
+    public ValorMonetarioVO getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(MonetaryAmount saldo) {
+    public void setSaldo(ValorMonetarioVO saldo) {
         this.saldo = saldo;
     }
 
-    public ClienteDTO getClienteDTO() {
-        return clienteDTO;
+    public Long getClienteId() {
+        return clienteId;
     }
 
-    public void setClienteDTO(ClienteDTO clienteDTO) {
-        this.clienteDTO = clienteDTO;
+    public void setClienteId(Long clienteId) {
+        this.clienteId = clienteId;
     }
 
     public boolean isAtiva() {
@@ -58,9 +55,9 @@ public class ContaDTO {
         ContaDTO contaDTO = new ContaDTO();
         contaDTO.setId(conta.getId());
         contaDTO.setNumero(conta.getNumero());
-        contaDTO.setSaldo(conta.getSaldo());
+        contaDTO.setSaldo(ValorMonetarioVO.fromMonetaryAmount(conta.getSaldo()));
 
-        contaDTO.setClienteDTO(ClienteDTO.fromCliente(conta.getCliente()));
+        contaDTO.setClienteId(conta.getCliente().getContaId());
         contaDTO.setAtiva(conta.isAtiva());
         return contaDTO;
     }

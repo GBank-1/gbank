@@ -19,6 +19,7 @@ import org.mockito.Mock;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import br.gbank.gbank.dto.TransferenciaDTO;
+import br.gbank.gbank.dto.ValorMonetarioVO;
 import br.gbank.gbank.exception.ContaSemSaldoException;
 import br.gbank.gbank.model.Transferencia;
 import br.gbank.gbank.model.entity.Cliente;
@@ -55,7 +56,7 @@ public class TransferenciaContaServiceTest {
         dto = new TransferenciaDTO();
         dto.setContaDebitoId(1);
         dto.setContaCreditoId(2);
-        dto.setValor(BigDecimal.valueOf(10000l));
+        dto.setValor(new ValorMonetarioVO(BigDecimal.valueOf(10000l), MonetaryUtil.BRL));
 
         doReturn(contaOrigem).when(contaRepository).getById(1l);
         doReturn(contaDestino).when(contaRepository).getById(2l);

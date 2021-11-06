@@ -35,7 +35,7 @@ public class TransferenciaService {
         Conta destino = Optional.ofNullable(contaRepository.getById(transferenciaDTO.getContaCreditoId())).orElseThrow(ContaTransferenciaNaoEncontradaException::new);
        
         Transferencia transferencia = new Transferencia.Builder().from(origem).to(destino).tax(escolherTaxaTransferrencia(origem))
-                .valor(transferenciaDTO.getValor()).build();
+                .valor(transferenciaDTO.getValor().toMonetaryAmount()).build();
         transferencia.processar();
         contaRepository.save(origem);
         contaRepository.save(destino);
