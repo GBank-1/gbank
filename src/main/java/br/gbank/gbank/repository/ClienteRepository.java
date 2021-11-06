@@ -1,8 +1,9 @@
 package br.gbank.gbank.repository;
 
-import br.gbank.gbank.model.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
+import br.gbank.gbank.model.entity.Cliente;
+
+public interface ClienteRepository extends JpaRepository<Cliente, Long> {
     boolean existsClienteByDadosPessoaisCpf(String cpf);
 }

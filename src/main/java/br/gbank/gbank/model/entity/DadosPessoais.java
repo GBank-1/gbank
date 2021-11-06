@@ -1,4 +1,4 @@
-package br.gbank.gbank.model;
+package br.gbank.gbank.model.entity;
 
 import java.util.Objects;
 

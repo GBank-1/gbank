@@ -1,6 +1,10 @@
-package br.gbank.gbank.model;
+package br.gbank.gbank.model.entity;
+
+import java.time.LocalDate;
+import java.util.Objects;
 
 import javax.money.MonetaryAmount;
+import javax.persistence.Column;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,6 +15,7 @@ import javax.persistence.Table;
 
 import org.javamoney.moneta.FastMoney;
 
+import br.gbank.gbank.exception.ContaSemSaldoException;
 import br.gbank.gbank.model.convert.MonetaryAmountConverter;
 import br.gbank.gbank.util.MonetaryUtil;
 import lombok.EqualsAndHashCode;
@@ -30,6 +35,7 @@ public class Conta {
 
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @EqualsAndHashCode.Include
+    @Column(unique = true)
     private Long numero;
 
     @OneToOne
@@ -92,6 +98,26 @@ public class Conta {
 
     public void setAtiva(boolean ativa) {
         this.ativa = ativa;
+    }
+
+    public boolean permiteDebitar(MonetaryAmount amount) {
+        return saldo.compareTo(amount) > 0;
+    }
+
+    public void debitar(MonetaryAmount amount) throws ContaSemSaldoException {
+        if(!permiteDebitar(amount)) {
+           throw new ContaSemSaldoException();
+        }
+        saldo = saldo.subtract(amount);
+    }
+
+    public void creditar(MonetaryAmount amount) {
+        saldo = saldo.add(amount);
+    }
+
+    public LocalDate getDataCadastrada() {
+        Objects.requireNonNull(cliente);
+        return cliente.getDataCadastro();
     }
 
 }

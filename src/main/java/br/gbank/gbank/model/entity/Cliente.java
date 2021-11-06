@@ -1,4 +1,4 @@
-package br.gbank.gbank.model;
+package br.gbank.gbank.model.entity;
 
 import java.time.LocalDate;
 import java.util.Objects;
@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,11 +19,16 @@ public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private Integer id;
+	private Long id;
+
 	@Column(name = "data_cadastro")
 	private LocalDate dataCadastro;
+
 	@Embedded
 	private DadosPessoais dadosPessoais;
+
+	@OneToOne(mappedBy = "cliente")
+	private Conta conta;
 
 	public Cliente() {
 		super();
@@ -35,20 +41,12 @@ public class Cliente {
 		this.dadosPessoais = dadosPessoais;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public LocalDate getDtCadastro() {
-		return dataCadastro;
-	}
-
-	public void setDtCadastro(LocalDate dtCadastro) {
-		this.dataCadastro = dtCadastro;
 	}
 
 	public DadosPessoais getDadosPessoais() {
@@ -57,6 +55,28 @@ public class Cliente {
 
 	public void setDadosPessoais(DadosPessoais dadosPessoais) {
 		this.dadosPessoais = dadosPessoais;
+	}
+
+	public LocalDate getDataCadastro() {
+		return dataCadastro;
+	}
+
+	public void setDataCadastro(LocalDate dataCadastro) {
+		this.dataCadastro = dataCadastro;
+	}
+
+	public Conta getConta() {
+		return conta;
+	}
+
+	public Long getContaId() {
+
+		Objects.requireNonNull(conta);
+		return conta.getId();
+	}
+
+	public void setConta(Conta conta) {
+		this.conta = conta;
 	}
 
 	@Override

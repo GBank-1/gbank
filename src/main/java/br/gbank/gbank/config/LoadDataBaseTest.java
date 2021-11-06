@@ -7,8 +7,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-import br.gbank.gbank.model.Cliente;
-import br.gbank.gbank.model.DadosPessoais;
+import br.gbank.gbank.model.entity.Cliente;
+import br.gbank.gbank.model.entity.DadosPessoais;
 import br.gbank.gbank.repository.ClienteRepository;
 import lombok.Builder;
 

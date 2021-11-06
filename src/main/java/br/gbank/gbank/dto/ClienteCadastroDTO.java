@@ -1,17 +1,12 @@
 package br.gbank.gbank.dto;
 
-import java.time.LocalDate;
-
 import br.gbank.gbank.model.entity.Cliente;
 
-public class ClienteDTO {
-	private Long id;
+public class ClienteCadastroDTO {
 	private String nome;
 	private String email;
 	private String cpf;
-	private LocalDate dataCadastro;
 	private String telefone;
-	private Long contaId;
 
 
 	public String getNome() {
@@ -45,39 +40,22 @@ public class ClienteDTO {
 		return telefone;
 	}
 	
-	public Long getContaId() {
-		return contaId;
-	}
-
-	public void setContaId(Long contaId) {
-		this.contaId = contaId;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public LocalDate getDataCadastro() {
-		return dataCadastro;
-	}
-
-	public void setDataCadastro(LocalDate dataCadastro) {
-		this.dataCadastro = dataCadastro;
-	}
-
 	public static ClienteDTO fromCliente(Cliente cliente) {
 		ClienteDTO clienteDTO = new ClienteDTO();
-		clienteDTO.setId(cliente.getId());
-		clienteDTO.setCpf(cliente.getDadosPessoais().getCpf());
-		clienteDTO.setDataCadastro(cliente.getDataCadastro());
 		clienteDTO.setNome(cliente.getDadosPessoais().getNome());
 		clienteDTO.setEmail(cliente.getDadosPessoais().getEmail());
-		clienteDTO.setContaId(cliente.getContaId());
 		return clienteDTO;
-	}	
+	}
+
+	public Cliente toCliente () {
+		Cliente cliente = new Cliente();
+		cliente.getDadosPessoais().setNome(this.getNome());
+		cliente.getDadosPessoais().setCpf(this.getCpf());
+		cliente.getDadosPessoais().setTelefone(this.getTelefone());
+		cliente.getDadosPessoais().setEmail(this.getEmail());
+		return cliente;
+	}
+	
+	
 
 }
