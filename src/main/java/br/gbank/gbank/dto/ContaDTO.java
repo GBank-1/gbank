@@ -1,8 +1,7 @@
 package br.gbank.gbank.dto;
 
-import br.gbank.gbank.model.Conta;
+import br.gbank.gbank.model.entity.Conta;
 
-import static br.gbank.gbank.dto.ClienteDTO.toClienteDTO;
 
 public class ContaDTO {
     private Long id;
@@ -42,12 +41,12 @@ public class ContaDTO {
         this.ativa = ativa;
     }
 
-    public static ContaDTO toContaDTO(Conta conta) {
+    public static ContaDTO fromConta(Conta conta) {
         ContaDTO contaDTO = new ContaDTO();
         contaDTO.setId(conta.getId());
         contaDTO.setNumero(conta.getNumero());
 
-        contaDTO.setClienteDTO(toClienteDTO(conta.getCliente()));
+        contaDTO.setClienteDTO(ClienteDTO.fromCliente(conta.getCliente()));
         contaDTO.setAtiva(conta.isAtiva());
         return contaDTO;
     }
