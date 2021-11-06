@@ -5,26 +5,26 @@ import java.math.BigDecimal;
 
 public class TransferenciaDTO implements Serializable {
 
-    private long numeroContaOrigem;
+    private long contaDebitoId;
 
-    private long numeroContaDestino;
+    private long contaCreditoId;
 
     private BigDecimal valor;
 
-    public long getNumeroContaOrigem() {
-        return numeroContaOrigem;
+    public long getContaDebitoId() {
+        return contaDebitoId;
     }
 
-    public void setNumeroContaOrigem(long numeroContaOrigem) {
-        this.numeroContaOrigem = numeroContaOrigem;
+    public void setContaDebitoId(long contaDebitoId) {
+        this.contaDebitoId = contaDebitoId;
     }
 
-    public long getNumeroContaDestino() {
-        return numeroContaDestino;
+    public long getContaCreditoId() {
+        return contaCreditoId;
     }
 
-    public void setNumeroContaDestino(long numeroContaDestino) {
-        this.numeroContaDestino = numeroContaDestino;
+    public void setContaCreditoId(long contaCrecitoId) {
+        this.contaCreditoId = contaCrecitoId;
     }
 
     public BigDecimal getValor() {

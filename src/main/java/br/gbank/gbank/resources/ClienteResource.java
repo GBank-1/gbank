@@ -1,6 +1,7 @@
 package br.gbank.gbank.resources;
 
 import java.net.URI;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -16,6 +17,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import br.gbank.gbank.dto.ClienteCadastroDTO;
 import br.gbank.gbank.dto.ClienteDTO;
 import br.gbank.gbank.exception.HandleException;
+import br.gbank.gbank.exception.NotFoundException;
 import br.gbank.gbank.model.entity.Cliente;
 import br.gbank.gbank.service.ClienteService;
 import br.gbank.gbank.util.ApiUrlConstante;
@@ -39,8 +41,8 @@ public class ClienteResource {
     @ApiOperation("Busca um cliente por")
     @GetMapping("/:id")
     public ResponseEntity<ClienteDTO> getId(Long id) {
-        Cliente cliente = clienteService.getById(id);
-        return ResponseEntity.ok().body(ClienteDTO.fromCliente(cliente));
+        return ResponseEntity.ok().body(Optional.ofNullable(clienteService.getById(id)).map(ClienteDTO::fromCliente)
+                .orElseThrow(NotFoundException::new));
     }
 
     @ApiOperation("Cadastra um Cliente")
@@ -49,7 +51,7 @@ public class ClienteResource {
         try {
             Cliente cliente = clienteService.create(clienteDTO);
             URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{codigo}").buildAndExpand(cliente.getId()).toUri();
-            return ResponseEntity.created(uri).body(cliente);
+            return ResponseEntity.created(uri).body(ClienteDTO.fromCliente(cliente));
         } catch(HandleException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         } catch(Exception e) {

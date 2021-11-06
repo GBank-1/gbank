@@ -8,8 +8,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 import br.gbank.gbank.model.entity.Cliente;
+import br.gbank.gbank.model.entity.Conta;
 import br.gbank.gbank.model.entity.DadosPessoais;
 import br.gbank.gbank.repository.ClienteRepository;
+import br.gbank.gbank.repository.ContaRepository;
 import lombok.Builder;
 
 /**
@@ -26,6 +28,9 @@ public class LoadDataBaseTest implements CommandLineRunner {
 
 	@Autowired
 	private ClienteRepository clienteRepository;
+
+	@Autowired
+	private ContaRepository contaRepository;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -44,7 +49,15 @@ public class LoadDataBaseTest implements CommandLineRunner {
 		mario.setDadosPessoais(dadosPessoaisDoMario);
 		ada.setDadosPessoais(dadosPessoaisDaAda);
 
+
 		clienteRepository.saveAll(Arrays.asList(vader, mario, ada));
+
+		Conta cvader = new Conta(vader);
+		Conta cmario = new Conta(mario);
+		Conta cada = new Conta(ada);
+
+		contaRepository.saveAll(Arrays.asList(cvader, cmario, cada));
+
 
 	}
 
