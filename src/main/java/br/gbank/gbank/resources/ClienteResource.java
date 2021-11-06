@@ -23,6 +23,7 @@ import br.gbank.gbank.service.ClienteService;
 import br.gbank.gbank.util.ApiUrlConstante;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+
 @RestController
 @Api(value = "Clientes", tags = "clientes")
 @RequestMapping(value = ApiUrlConstante.CLIENTES)
@@ -35,7 +36,7 @@ public class ClienteResource {
     @GetMapping
     public ResponseEntity<Page<ClienteDTO>> getAll(Pageable pageable) {
         Page<ClienteDTO> list = clienteService.getAll(pageable);
-        return list.isEmpty()?ResponseEntity.noContent().build():ResponseEntity.ok().body(list);
+        return list.isEmpty() ? ResponseEntity.noContent().build() : ResponseEntity.ok().body(list);
     }
 
     @ApiOperation("Busca um cliente por")

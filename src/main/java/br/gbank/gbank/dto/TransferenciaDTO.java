@@ -1,7 +1,6 @@
 package br.gbank.gbank.dto;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 
 public class TransferenciaDTO implements Serializable {
 
@@ -9,7 +8,7 @@ public class TransferenciaDTO implements Serializable {
 
     private long contaCreditoId;
 
-    private BigDecimal valor;
+    private ValorMonetarioVO valor;
 
     public long getContaDebitoId() {
         return contaDebitoId;
@@ -27,11 +26,11 @@ public class TransferenciaDTO implements Serializable {
         this.contaCreditoId = contaCrecitoId;
     }
 
-    public BigDecimal getValor() {
+    public ValorMonetarioVO getValor() {
         return valor;
     }
 
-    public void setValor(BigDecimal valor) {
+    public void setValor(ValorMonetarioVO valor) {
         this.valor = valor;
     }
 

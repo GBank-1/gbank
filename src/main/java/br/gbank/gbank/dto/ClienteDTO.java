@@ -1,10 +1,11 @@
 package br.gbank.gbank.dto;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import br.gbank.gbank.model.entity.Cliente;
 
-public class ClienteDTO {
+public class ClienteDTO implements Serializable{
 	private Long id;
 	private String nome;
 	private String email;
@@ -79,5 +80,7 @@ public class ClienteDTO {
 		clienteDTO.setContaId(cliente.getContaId());
 		return clienteDTO;
 	}	
+
+	
 
 }

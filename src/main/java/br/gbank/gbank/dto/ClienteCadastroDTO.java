@@ -1,8 +1,10 @@
 package br.gbank.gbank.dto;
 
+import java.io.Serializable;
+
 import br.gbank.gbank.model.entity.Cliente;
 
-public class ClienteCadastroDTO {
+public class ClienteCadastroDTO implements Serializable {
 	private String nome;
 	private String email;
 	private String cpf;

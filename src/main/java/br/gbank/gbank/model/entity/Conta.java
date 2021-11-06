@@ -27,7 +27,6 @@ import lombok.ToString;
 @Table(schema = "IBM")
 public class Conta {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
@@ -40,21 +39,21 @@ public class Conta {
 
     @OneToOne
     private Cliente cliente;
-    
-    @Convert(converter = MonetaryAmountConverter.class) 
+
+    @Convert(converter = MonetaryAmountConverter.class)
     private MonetaryAmount saldo;
 
     private boolean ativa;
 
-    public Conta () {
-        //empty
+    public Conta() {
+        // empty
     }
 
     public Conta(Cliente cliente) {
         super();
         this.cliente = cliente;
         this.ativa = true;
-        this.saldo = FastMoney.of(100000, MonetaryUtil.BRL); 
+        this.saldo = FastMoney.of(100000, MonetaryUtil.BRL);
     }
 
     /**
@@ -62,7 +61,7 @@ public class Conta {
      */
     public Conta(Cliente cliente, Long numero) {
         this(cliente);
-        this.numero=numero;
+        this.numero = numero;
     }
 
     public Long getId() {
@@ -110,8 +109,8 @@ public class Conta {
     }
 
     public void debitar(MonetaryAmount amount) throws ContaSemSaldoException {
-        if(!permiteDebitar(amount)) {
-           throw new ContaSemSaldoException();
+        if (!permiteDebitar(amount)) {
+            throw new ContaSemSaldoException();
         }
         saldo = saldo.subtract(amount);
     }
