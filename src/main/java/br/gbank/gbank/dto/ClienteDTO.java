@@ -1,86 +1,84 @@
 package br.gbank.gbank.dto;
 
+import br.gbank.gbank.model.entity.Cliente;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 
-import br.gbank.gbank.model.entity.Cliente;
+public class ClienteDTO implements Serializable {
+    private Long id;
+    private String nome;
+    private String email;
+    private String cpf;
+    private LocalDate dataCadastro;
+    private String telefone;
+    private Long contaId;
 
-public class ClienteDTO implements Serializable{
-	private Long id;
-	private String nome;
-	private String email;
-	private String cpf;
-	private LocalDate dataCadastro;
-	private String telefone;
-	private Long contaId;
+    public static ClienteDTO fromCliente(Cliente cliente) {
+        ClienteDTO clienteDTO = new ClienteDTO();
+        clienteDTO.setId(cliente.getId());
+        clienteDTO.setCpf(cliente.getDadosPessoais().getCpf());
+        clienteDTO.setDataCadastro(cliente.getDataCadastro());
+        clienteDTO.setNome(cliente.getDadosPessoais().getNome());
+        clienteDTO.setEmail(cliente.getDadosPessoais().getEmail());
+        clienteDTO.setContaId(cliente.getContaId());
+        clienteDTO.setTelefone(cliente.getDadosPessoais().getTelefone());
+        return clienteDTO;
+    }
 
+    public String getNome() {
+        return nome;
+    }
 
-	public String getNome() {
-		return nome;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-	
-	public String getCpf() {
-		return cpf;
-	}
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
-	
-	public String getTelefone() {
-		return telefone;
-	}
-	
-	public Long getContaId() {
-		return contaId;
-	}
+    public String getCpf() {
+        return cpf;
+    }
 
-	public void setContaId(Long contaId) {
-		this.contaId = contaId;
-	}
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public String getTelefone() {
+        return telefone;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
 
-	public LocalDate getDataCadastro() {
-		return dataCadastro;
-	}
+    public Long getContaId() {
+        return contaId;
+    }
 
-	public void setDataCadastro(LocalDate dataCadastro) {
-		this.dataCadastro = dataCadastro;
-	}
+    public void setContaId(Long contaId) {
+        this.contaId = contaId;
+    }
 
-	public static ClienteDTO fromCliente(Cliente cliente) {
-		ClienteDTO clienteDTO = new ClienteDTO();
-		clienteDTO.setId(cliente.getId());
-		clienteDTO.setCpf(cliente.getDadosPessoais().getCpf());
-		clienteDTO.setDataCadastro(cliente.getDataCadastro());
-		clienteDTO.setNome(cliente.getDadosPessoais().getNome());
-		clienteDTO.setEmail(cliente.getDadosPessoais().getEmail());
-		clienteDTO.setContaId(cliente.getContaId());
-		return clienteDTO;
-	}	
+    public Long getId() {
+        return id;
+    }
 
-	
+    public void setId(Long id) {
+        this.id = id;
+    }
 
+    public LocalDate getDataCadastro() {
+        return dataCadastro;
+    }
+
+    public void setDataCadastro(LocalDate dataCadastro) {
+        this.dataCadastro = dataCadastro;
+    }
 }
