@@ -1,47 +1,43 @@
 package br.gbank.gbank.service;
 
+import br.gbank.gbank.dto.ClienteCadastroDTO;
+import br.gbank.gbank.exception.GenericException;
+import br.gbank.gbank.exception.NotFoundException;
+import br.gbank.gbank.model.entity.Cliente;
+import br.gbank.gbank.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import br.gbank.gbank.dto.ClienteCadastroDTO;
-import br.gbank.gbank.dto.ClienteDTO;
-import br.gbank.gbank.exception.HandleException;
-import br.gbank.gbank.model.entity.Cliente;
-import br.gbank.gbank.repository.ClienteRepository;
+import javax.transaction.Transactional;
 
 @Service
 public class ClienteService {
 
-	@Autowired
-	private ClienteRepository clienteRepository;
+    @Autowired
+    private ClienteRepository clienteRepository;
 
-	@Autowired
-	private ContaService contaService;
+    @Autowired
+    private ContaService contaService;
 
-	public Page<ClienteDTO> getAll(Pageable pageable) {
-		return clienteRepository.findAll(pageable).map(ClienteDTO::fromCliente);
-	}
-
-	public Cliente create(ClienteCadastroDTO clienteDTO) throws HandleException {
-		Cliente cliente = clienteDTO.toCliente();
-		String cpf = cliente.getDadosPessoais().getCpf();
-		if (cpf == null || cpf.equals("")) {
-			throw new HandleException("CPF não informado");
-		} else if (clienteRepository.existsClienteByDadosPessoaisCpf(cliente.getDadosPessoais().getCpf())) {
-			throw new HandleException("CPF já existe");
-		}
-		clienteRepository.save(cliente);
-		contaService.create(cliente);
-
-		return cliente;
-
-	}
-
-    public Cliente getById(Long id) {
-        return clienteRepository.getById(id);
+    public Page<Cliente> getAll(Pageable pageable) {
+        return clienteRepository.findAll(pageable);
     }
 
+    public Cliente getById(Long id) {
+        return clienteRepository.getClienteById(id).orElseThrow(() -> new NotFoundException(false, "cliente", "id", id.toString()));
+    }
 
+    @Transactional
+    public Cliente create(ClienteCadastroDTO clienteDTO) {
+        Cliente cliente = clienteDTO.toCliente();
+        if (clienteRepository.existsClienteByDadosPessoaisCpf(cliente.getDadosPessoais().getCpf())) {
+            throw new GenericException("CPF já cadastrado");
+        }
+        clienteRepository.save(cliente);
+        contaService.create(cliente);
+
+        return cliente;
+    }
 }

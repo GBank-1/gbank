@@ -10,6 +10,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import org.javamoney.moneta.FastMoney;
+import org.javamoney.moneta.Money;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -49,17 +50,18 @@ public class TransferenciaContaServiceTest {
 
     @BeforeEach
     public void before() {
-        contaOrigem = new Conta(clienteOrigem, 231l);
-        contaOrigem.setCliente(clienteOrigem);
-        contaDestino = new Conta(new Cliente(), 232l);
+        contaOrigem = new Conta(clienteOrigem);
+        contaOrigem.setSaldo(Money.of(231L, "BRL"));
+        contaDestino = new Conta(new Cliente());
+        contaDestino.setSaldo(Money.of(231L, "BRL"));
 
         dto = new TransferenciaDTO();
         dto.setContaDebitoId(1);
         dto.setContaCreditoId(2);
-        dto.setValor(new ValorMonetarioVO(BigDecimal.valueOf(10000l), MonetaryUtil.BRL));
+        dto.setValor(new ValorMonetarioVO(BigDecimal.valueOf(10000L), MonetaryUtil.BRL));
 
-        doReturn(contaOrigem).when(contaRepository).getById(1l);
-        doReturn(contaDestino).when(contaRepository).getById(2l);
+        doReturn(contaOrigem).when(contaRepository).getById(1L);
+        doReturn(contaDestino).when(contaRepository).getById(2L);
 
     }
 

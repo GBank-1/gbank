@@ -1,5 +1,7 @@
 package br.gbank.gbank.dto;
 
+import javax.validation.Valid;
+import javax.validation.constraints.AssertFalse;
 import java.io.Serializable;
 
 public class TransferenciaDTO implements Serializable {
@@ -8,6 +10,7 @@ public class TransferenciaDTO implements Serializable {
 
     private long contaCreditoId;
 
+    @Valid
     private ValorMonetarioVO valor;
 
     public long getContaDebitoId() {
@@ -34,4 +37,8 @@ public class TransferenciaDTO implements Serializable {
         this.valor = valor;
     }
 
+    @AssertFalse(message = "As contas de origem e destino não podem ser a mesma")
+    private boolean isValid() {
+        return this.contaCreditoId == this.contaDebitoId;
+    }
 }

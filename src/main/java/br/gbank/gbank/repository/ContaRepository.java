@@ -1,13 +1,12 @@
 package br.gbank.gbank.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 
 import br.gbank.gbank.model.entity.Conta;
 
-public interface ContaRepository extends JpaRepository<Conta, Long> {
+import java.util.Optional;
 
-    @Query("Select c from Conta c where numero = :numero")
-    Conta getByNumero(Long numero);
-    
+public interface ContaRepository extends JpaRepository<Conta, Long> {
+    Optional<Conta> getContaById(Long id);
+    Optional<Conta> getContaByNumero(Long numero);
 }

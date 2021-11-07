@@ -1,29 +1,33 @@
 package br.gbank.gbank.model;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.Objects;
 
 import javax.money.MonetaryAmount;
-
-import org.javamoney.moneta.FastMoney;
+import javax.validation.constraints.NotNull;
 
 import br.gbank.gbank.exception.ContaSemSaldoException;
 import br.gbank.gbank.model.entity.Conta;
-import br.gbank.gbank.util.MonetaryUtil;
 
 public class Transferencia extends Transation {
 
+    @NotNull(message = "A conta de destino não pode ser nula")
     private Conta destino;
 
+    @NotNull(message = "A conta de origem não pode ser nula")
     private Conta origem;
 
+    @NotNull(message = "Valor não pode ser nulo")
     private MonetaryAmount valor;
 
+    @NotNull(message = "Taxa não pode ser nula")
     private TaxaTransferencia taxa;
 
-    protected Transferencia() {
+    public Transferencia(Conta destino, Conta origem, MonetaryAmount valor, TaxaTransferencia taxa) {
         super(TipoTransacao.TRANSFERENCIA);
+        this.destino = destino;
+        this.origem = origem;
+        this.valor = valor;
+        this.taxa = taxa;
     }
 
     @Override
@@ -49,51 +53,4 @@ public class Transferencia extends Transation {
     public TaxaTransferencia getTaxa() {
         return taxa;
     }
-
-    public static class Builder {
-
-        private Transferencia transferencia;
-
-        public Builder() {
-            transferencia = new Transferencia();
-        }
-
-        public Builder from(Conta origem) {
-            transferencia.origem = origem;
-            return this;
-        }
-
-        public Builder to(Conta destino) {
-            transferencia.destino = destino;
-            return this;
-        }
-
-        public Builder tax(TaxaTransferencia taxa) {
-            transferencia.taxa = taxa;
-            return this;
-        }
-
-        public Builder valor(MonetaryAmount amount) {
-            transferencia.valor = amount;
-            return this;
-        }
-
-        public Builder valor(BigDecimal amount) {
-            transferencia.valor = FastMoney.of(amount, MonetaryUtil.BRL);
-            return this;
-        }
-
-        public Transferencia build() {
-
-            Objects.requireNonNull(transferencia.origem, "Origem não pode ser nula");
-            Objects.requireNonNull(transferencia.destino, "Destino não pode ser nula");
-            Objects.requireNonNull(transferencia.valor, "Valor não pode ser nula");
-            Objects.requireNonNull(transferencia.taxa, "Taxa não pode ser nula");
-            return transferencia;
-        }
-
-    }
-
-   
-
 }

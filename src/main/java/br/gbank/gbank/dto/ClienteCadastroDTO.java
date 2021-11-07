@@ -3,11 +3,22 @@ package br.gbank.gbank.dto;
 import java.io.Serializable;
 
 import br.gbank.gbank.model.entity.Cliente;
+import org.hibernate.validator.constraints.br.CPF;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 public class ClienteCadastroDTO implements Serializable {
+	@NotBlank(message = "Nome não informado")
 	private String nome;
-	private String email;
+	@NotBlank(message = "CPF não informado")
+	@CPF(message = "CPF Inválido")
 	private String cpf;
+	@Email
+	@NotBlank(message = "Email não informado")
+	private String email;
+	@Size(max = 20)
 	private String telefone;
 
 

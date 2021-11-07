@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.Valid;
 
 @Entity
 @Table(schema = "IBM")
@@ -18,13 +19,13 @@ public class Cliente {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
 	private Long id;
 
 	@Column(name = "data_cadastro")
 	private LocalDate dataCadastro;
 
 	@Embedded
+	@Valid
 	private DadosPessoais dadosPessoais;
 
 	@OneToOne(mappedBy = "cliente")
@@ -34,11 +35,6 @@ public class Cliente {
 		super();
 		dataCadastro = LocalDate.now();
 		dadosPessoais = new DadosPessoais();
-	}
-
-	public Cliente(DadosPessoais dadosPessoais) {
-		super();
-		this.dadosPessoais = dadosPessoais;
 	}
 
 	public Long getId() {

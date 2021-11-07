@@ -5,12 +5,14 @@ import java.math.BigDecimal;
 
 import javax.money.CurrencyUnit;
 import javax.money.MonetaryAmount;
+import javax.validation.constraints.NotNull;
 
 import br.gbank.gbank.exception.MoedaNaoSuportadaException;
 import br.gbank.gbank.util.MonetaryUtil;
 
 public class ValorMonetarioVO implements Serializable {
 
+    @NotNull(message = "Valor não pode ser nulo")
     private BigDecimal valor;
     private String moeda;
     

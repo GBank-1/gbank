@@ -18,22 +18,16 @@ import org.javamoney.moneta.FastMoney;
 import br.gbank.gbank.exception.ContaSemSaldoException;
 import br.gbank.gbank.model.convert.MonetaryAmountConverter;
 import br.gbank.gbank.util.MonetaryUtil;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
 
-@ToString
-@EqualsAndHashCode
 @Entity
 @Table(schema = "IBM")
 public class Conta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @EqualsAndHashCode.Include
     private Long id;
 
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @EqualsAndHashCode.Include
     @Column(unique = true)
     private Long numero;
 
@@ -54,14 +48,6 @@ public class Conta {
         this.cliente = cliente;
         this.ativa = true;
         this.saldo = FastMoney.of(100000, MonetaryUtil.BRL);
-    }
-
-    /**
-     * @param numero
-     */
-    public Conta(Cliente cliente, Long numero) {
-        this(cliente);
-        this.numero = numero;
     }
 
     public Long getId() {
@@ -108,7 +94,7 @@ public class Conta {
         return saldo.compareTo(amount) > 0;
     }
 
-    public void debitar(MonetaryAmount amount) throws ContaSemSaldoException {
+    public void debitar(MonetaryAmount amount){
         if (!permiteDebitar(amount)) {
             throw new ContaSemSaldoException();
         }
