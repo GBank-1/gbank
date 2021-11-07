@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import br.gbank.gbank.model.entity.HistoricoTransferencia;
 
-public interface HistoricoTranferenciaRepositorio extends JpaRepository<HistoricoTransferencia, Long> {
-    
+public interface HistoricoTranferenciaRepository extends JpaRepository<HistoricoTransferencia, Long> {
+
 }

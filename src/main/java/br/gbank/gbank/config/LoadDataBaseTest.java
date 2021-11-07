@@ -36,13 +36,13 @@ public class LoadDataBaseTest implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 		Cliente vader = new Cliente();
-		DadosPessoais dadosPessoaisDoVader = new DadosPessoais("Darth Vader", "11190887653", "vader@email.com",
+		DadosPessoais dadosPessoaisDoVader = new DadosPessoais("Darth Vader", "026.190.910-04", "vader@email.com",
 				"+123 24 11111111");
 		Cliente mario = new Cliente();
-		DadosPessoais dadosPessoaisDoMario = new DadosPessoais("Mario Bros", "11190882353", "mario@email.com",
+		DadosPessoais dadosPessoaisDoMario = new DadosPessoais("Mario Bros", "528.130.250-70", "mario@email.com",
 				"+123 24 222222222");
 		Cliente ada = new Cliente();
-		DadosPessoais dadosPessoaisDaAda = new DadosPessoais("Ada Lovelace", "11190887d53", "ada@email.com",
+		DadosPessoais dadosPessoaisDaAda = new DadosPessoais("Ada Lovelace", "557.534.690-00", "ada@email.com",
 				"+123 24 11111111");
 
 		vader.setDadosPessoais(dadosPessoaisDoVader);

@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.br.CPF;
@@ -13,19 +14,16 @@ import org.hibernate.validator.constraints.br.CPF;
 @Embeddable
 public class DadosPessoais {
 
-	@Column(name = "nome")
-	@NotBlank
+	@NotBlank(message = "Nome não informado")
 	private String nome;
-	@Column(name = "cpf", unique = true, nullable = false)
-	@NotBlank
+	@Column(unique = true)
+	@NotBlank(message = "CPF não informado")
 	@CPF(message = "CPF Inválido")
 	private String cpf;
 	@Email
-	@NotBlank
-	@Column(name = "email")
+	@NotBlank(message = "Email não informado")
 	private String email;
 	@Size(max = 20)
-	@Column(name = "telefone")
 	private String telefone;
 
 	public DadosPessoais() {

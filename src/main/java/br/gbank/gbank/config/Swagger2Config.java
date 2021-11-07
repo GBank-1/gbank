@@ -33,47 +33,49 @@ public class Swagger2Config {
                                 new ResponseBuilder().code(String.valueOf(HttpStatusCode.OK))
                                                 .description(HttpStatusCode.DSC_OK).build(),
                                 new ResponseBuilder().code(String.valueOf(HttpStatusCode.NOT_FOUND))
-                                                .description(String.valueOf(HttpStatusCode.DSC_NOT_FOUND)).build(),
+                                                .description(HttpStatusCode.DSC_NOT_FOUND).build(),
                                 new ResponseBuilder().code(String.valueOf(HttpStatusCode.FORBIDDEN))
-                                                .description(String.valueOf(HttpStatusCode.DSC_FORBIDDEN)).build(),
+                                                .description(HttpStatusCode.DSC_FORBIDDEN).build(),
                                 new ResponseBuilder().code(String.valueOf(HttpStatusCode.INTERNAL_ERROR))
-                                                .description(HttpStatusCode.DSC_INTERNAL_ERROR).build()));
+                                                .description(HttpStatusCode.DSC_INTERNAL_ERROR).build(),
+                                new ResponseBuilder().code(String.valueOf(HttpStatusCode.NO_CONTENT))
+                                                .description(HttpStatusCode.DSC_NO_CONTENT).build()));
 
                 responses.put(HttpMethod.PUT, Arrays.asList(
                                 new ResponseBuilder().code(String.valueOf(HttpStatusCode.CREATED))
-                                                .description(String.valueOf(HttpStatusCode.DSC_CREATED)).build(),
+                                                .description(HttpStatusCode.DSC_CREATED).build(),
                                 new ResponseBuilder().code(String.valueOf(HttpStatusCode.NOT_FOUND))
-                                                .description(String.valueOf(HttpStatusCode.DSC_NOT_FOUND)).build(),
+                                                .description(HttpStatusCode.DSC_NOT_FOUND).build(),
                                 new ResponseBuilder().code(String.valueOf(HttpStatusCode.BAD_REQUEST))
                                                 .description(HttpStatusCode.DSC_BAD_REQUEST).build(),
                                 new ResponseBuilder().code(String.valueOf(HttpStatusCode.FORBIDDEN))
-                                                .description(String.valueOf(HttpStatusCode.DSC_FORBIDDEN)).build(),
+                                                .description(HttpStatusCode.DSC_FORBIDDEN).build(),
                                 new ResponseBuilder().code(String.valueOf(HttpStatusCode.INTERNAL_ERROR))
                                                 .description(HttpStatusCode.DSC_INTERNAL_ERROR).build()));
 
                 responses.put(HttpMethod.POST, Arrays.asList(
                                 new ResponseBuilder().code(String.valueOf(HttpStatusCode.CREATED))
-                                                .description(String.valueOf(HttpStatusCode.DSC_CREATED)).build(),
+                                                .description(HttpStatusCode.DSC_CREATED).build(),
                                 new ResponseBuilder().code(String.valueOf(HttpStatusCode.NOT_FOUND))
-                                                .description(String.valueOf(HttpStatusCode.DSC_NOT_FOUND)).build(),
+                                                .description(HttpStatusCode.DSC_NOT_FOUND).build(),
                                 new ResponseBuilder().code(String.valueOf(HttpStatusCode.FORBIDDEN))
-                                                .description(String.valueOf(HttpStatusCode.DSC_FORBIDDEN)).build(),
+                                                .description(HttpStatusCode.DSC_FORBIDDEN).build(),
                                 new ResponseBuilder().code(String.valueOf(HttpStatusCode.INTERNAL_ERROR))
                                                 .description(HttpStatusCode.DSC_INTERNAL_ERROR).build()));
 
                 responses.put(HttpMethod.DELETE, Arrays.asList(
                                 new ResponseBuilder().code(String.valueOf(HttpStatusCode.NO_CONTENT))
-                                                .description(String.valueOf(HttpStatusCode.DSC_NO_CONTENT)).build(),
+                                                .description(HttpStatusCode.DSC_NO_CONTENT).build(),
                                 new ResponseBuilder().code(String.valueOf(HttpStatusCode.FORBIDDEN))
-                                                .description(String.valueOf(HttpStatusCode.DSC_FORBIDDEN)).build(),
+                                                .description(HttpStatusCode.DSC_FORBIDDEN).build(),
                                 new ResponseBuilder().code(String.valueOf(HttpStatusCode.INTERNAL_ERROR))
                                                 .description(HttpStatusCode.DSC_INTERNAL_ERROR).build()));
 
                 responses.put(HttpMethod.PATCH, Arrays.asList(
                                 new ResponseBuilder().code(String.valueOf(HttpStatusCode.NO_CONTENT))
-                                                .description(String.valueOf(HttpStatusCode.DSC_NO_CONTENT)).build(),
+                                                .description(HttpStatusCode.DSC_NO_CONTENT).build(),
                                 new ResponseBuilder().code(String.valueOf(HttpStatusCode.FORBIDDEN))
-                                                .description(String.valueOf(HttpStatusCode.DSC_FORBIDDEN)).build(),
+                                                .description(HttpStatusCode.DSC_FORBIDDEN).build(),
                                 new ResponseBuilder().code(String.valueOf(HttpStatusCode.INTERNAL_ERROR))
                                                 .description(HttpStatusCode.DSC_INTERNAL_ERROR).build()));
 
