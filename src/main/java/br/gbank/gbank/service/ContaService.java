@@ -31,4 +31,11 @@ public class ContaService {
         Conta conta = new Conta(cliente);
         contaRepository.save(conta);
     }
+
+    public void updateAtiva(Long id) {
+        Conta conta = contaRepository.getContaById(id)
+                .orElseThrow(() -> new NotFoundException(true, "conta", "id", Long.toString(id)));
+        conta.setAtiva(!conta.isAtiva());
+        contaRepository.save(conta);
+    }
 }

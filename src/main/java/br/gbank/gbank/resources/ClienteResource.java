@@ -2,8 +2,11 @@ package br.gbank.gbank.resources;
 
 import br.gbank.gbank.dto.ClienteCadastroDTO;
 import br.gbank.gbank.dto.ClienteDTO;
+import br.gbank.gbank.dto.ClienteUpdateDTO;
+import br.gbank.gbank.dto.ContaDTO;
 import br.gbank.gbank.exception.ConstraintException;
 import br.gbank.gbank.model.entity.Cliente;
+import br.gbank.gbank.model.entity.Conta;
 import br.gbank.gbank.service.ClienteService;
 import br.gbank.gbank.util.ApiUrlConstante;
 import io.swagger.annotations.Api;
@@ -48,5 +51,15 @@ public class ClienteResource {
         Cliente cliente = clienteService.create(clienteDTO);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{codigo}").buildAndExpand(cliente.getId()).toUri();
         return ResponseEntity.created(uri).body(ClienteDTO.fromCliente(cliente));
+    }
+
+    @PutMapping("/{id}")
+    @ApiOperation("Atualiza o cadastro do cliente")
+    public ResponseEntity<Void> update(@PathVariable Long id, @Valid @RequestBody ClienteUpdateDTO clienteUpdateDTO, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            throw new ConstraintException(bindingResult.getAllErrors().get(0).getDefaultMessage());
+        }
+        clienteService.update(id, clienteUpdateDTO);
+        return ResponseEntity.noContent().build();
     }
 }
