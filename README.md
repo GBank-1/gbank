@@ -37,7 +37,7 @@ Como forma de agradecer por experimentar nossa plataforma, estamos oferecendo um
 Para começar a usar nossa plataforma, consulte [aqui](https://gbank-1.github.io/gbank/) ou nosso [help](HELP.md)
 
 _______________________________________________________________________________________________________
-#### Equipe GBank
+#### Equipe Gbank
 
 * [Helis Freitas](https://github.com/flordelis)
 * [Sarah Calbez](https://github.com/Sarahcalbez2)
