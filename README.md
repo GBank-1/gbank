@@ -1,9 +1,8 @@
-# Gbank
 Projeto Final do Evento Gama Academy - IBM
 
 [![Java CI with Maven](https://github.com/GBank-1/gbank/actions/workflows/maven.yml/badge.svg)](https://github.com/GBank-1/gbank/actions/workflows/maven.yml)
 
-<img width="215" alt="Screen Shot 2021-11-08 at 19 42 15" src="https://user-images.githubusercontent.com/56567293/140829799-b82c7186-9f33-4f99-b5ce-8a48a79bd523.png">
+<img width="214" alt="Screen Shot 2021-11-08 at 19 43 11" src="https://user-images.githubusercontent.com/56567293/140829872-fcd89cfc-f5b4-4bab-b010-2a350ef07b2d.png">
 
 _______________________________________________________________________________________________________
 #### Porque somos Gbank? 
