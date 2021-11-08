@@ -4,7 +4,7 @@ Projeto Final do Evento Gama Academy - IBM
 [![Java CI with Maven](https://github.com/GBank-1/gbank/actions/workflows/maven.yml/badge.svg)](https://github.com/GBank-1/gbank/actions/workflows/maven.yml)
 
 
-![image](https://user-images.githubusercontent.com/56567293/140829351-9df09d11-c410-4487-b39c-19a359fe11ed.png)
+####![image](https://user-images.githubusercontent.com/56567293/140829351-9df09d11-c410-4487-b39c-19a359fe11ed.png)
 
 
 _______________________________________________________________________________________________________
