@@ -37,3 +37,7 @@ Para começar a usar nossa plataforma, consulte [aqui](https://gbank-1.github.io
 * [Charles Chaclim](https://github.com/CharlesChaclim)
 * [Pedro Neri](https://github.com/PPNeri)
 * [Davi Sales](https://github.com/davigomessales)
+
+
+##### Nosso Trello
+https://trello.com/b/2lEUOyXI/gbank
