@@ -3,7 +3,10 @@
 
 <img width="214" alt="Screen Shot 2021-11-08 at 19 43 11" src="https://user-images.githubusercontent.com/56567293/140829872-fcd89cfc-f5b4-4bab-b010-2a350ef07b2d.png">
 Projeto Final do Evento Gama Academy - IBM
+
+
 _______________________________________________________________________________________________________
+
 #### Porque somos Gbank? 
 
 * Somos G de gente, uma empresa [fictícia] humanitária que enxerga o valor das pessoas como um todo. Que entende que Gente é diversidade, gente é parceria, gente é inclusão, 
