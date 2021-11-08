@@ -4,6 +4,7 @@ Projeto Final do Evento Gama Academy - IBM
 [![Java CI with Maven](https://github.com/GBank-1/gbank/actions/workflows/maven.yml/badge.svg)](https://github.com/GBank-1/gbank/actions/workflows/maven.yml)
 
 
+_______________________________________________________________________________________________________
 #### Porque somos Gbank? 
 
 * Somos G de gente, uma empresa [fictícia] humanitária que enxerga o valor das pessoas como um todo. Que entende que Gente é diversidade, gente é parceria, gente é inclusão, 
@@ -21,6 +22,9 @@ gente é tudo ao nosso redor.
 
 Vem ser Gbank!
 
+
+_______________________________________________________________________________________________________
+
 #### Sobre o Projeto Gbank
 
 O banco fictício Gbank é uma nova plataforma para gerenciar transações que será disponibilizada através de uma API REST.
@@ -30,6 +34,7 @@ Como forma de agradecer por experimentar nossa plataforma, estamos oferecendo um
 
 Para começar a usar nossa plataforma, consulte [aqui](https://gbank-1.github.io/gbank/) ou nosso [help](HELP.md)
 
+_______________________________________________________________________________________________________
 ##### Equipe GBank
 
 * [Helis Freitas](https://github.com/flordelis)
@@ -39,5 +44,6 @@ Para começar a usar nossa plataforma, consulte [aqui](https://gbank-1.github.io
 * [Davi Sales](https://github.com/davigomessales)
 
 
+_______________________________________________________________________________________________________
 ##### Nosso Trello
 https://trello.com/b/2lEUOyXI/gbank
