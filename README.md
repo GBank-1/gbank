@@ -42,7 +42,7 @@ ________________________________________________________________________________
 * [Charles Chaclim](https://github.com/CharlesChaclim)
 * [Pedro Neri](https://github.com/PPNeri)
 * [Davi Sales](https://github.com/davigomessales)
-
+ 
 
 _______________________________________________________________________________________________________
 ##### Nosso Trello
