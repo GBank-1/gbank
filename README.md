@@ -20,7 +20,7 @@ gente é tudo ao nosso redor.
 * Por fim, GBank também é G de Green. Apoiadora fiel na luta pela proteção da Natureza, com a responsabilidade de tornar o mundo um lugar cada dia mais verde, cada dia melhor. Por isso todas as nossas ferramentas de trabalho são digitais, excluindo qualquer tipo de uso desnecessário de materiais extraídos da mãe natureza.
 
 
-Vem ser Gbank!
+     Vem ser Gbank!
 
 
 _______________________________________________________________________________________________________
